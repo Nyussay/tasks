@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="дисциплина">
+ <xs:restriction base="xs:string">
+ <xs:pattern value="[2-5]" />
+ </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="имяст">
+ <xs:restriction base="xs:string">
+ <xs:maxLength value="32" />
+</xs:restriction>
+</xs:simpleType> 
+
+<xs:element name="Мультимедиа" type="дисциплина" />
+<xs:element name="Веб-дизайн" type="дисциплина" />
+<xs:element name="Графика" type="дисциплина" />
+<xs:element name="Логика" type="дисциплина" />
+<xs:attribute name="имя" type="имяст" /> 
+
+<xs:complexType name="студ">
+  <xs:sequence>
+    <xs:element ref="Мультимедиа" />
+    <xs:element ref="Веб-дизайн" />
+    <xs:element ref="Графика" />
+    <xs:element ref="Логика"/>
+  </xs:sequence> 
+  <xs:attribute ref="имя" use="required"/>
+</xs:complexType> 
+
+<xs:element name="студент" type="студ" />
+
+<xs:complexType name="табл">
+  <xs:sequence>
+    <xs:element ref="студент" minOccurs="1" maxOccurs="ubounded" />
+  </xs:sequence> 
+</xs:complexType> 
+
+<xs:element name="таблица" type="табл" />
+  
+</xs:schema>
