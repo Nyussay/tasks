@@ -1,0 +1,23 @@
+{  
+   "type":"object",
+   "properties":{  
+      "студент":{  
+         "type":"array",
+         "properties":{ 
+           "имя":{  
+               "type":"string"
+            },
+             "оценки":{ 
+               "Мультимедиа":{
+               "type":"integer"},
+                  "Веб-дизайн":{
+               "type":"integer"},
+                  "Графика":{
+               "type":"integer"},
+                  "Логика":{
+               "type":"integer"}  
+            }
+         }
+      }
+   }
+}
